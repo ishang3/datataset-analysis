@@ -12,30 +12,6 @@ import numpy as np
 import json
 
 
-def create_double(dimensions,label):
-
-    with open('easy-person-errors.json') as infile:
-        errors = json.load(infile)
-        x = [(width * height) / 100 for width, height in errors.values()]
-
-
-    y = [(width * height) / 100 for width, height in dimensions.values()]
-
-    temp = x + y
-    import numpy as np
-    import matplotlib.pyplot as plt
-    plt.style.use('seaborn-deep')
-
-    bins = np.linspace(min(temp), max(temp), 40)
-
-    plt.hist([x, y], bins, label=['Errors', 'Ground Truth'])
-    plt.legend(loc='upper right')
-    plt.xticks(np.arange(min(temp), max(temp) + 1, 40.0))
-    plt.title('Person Easy Plots')
-    plt.show()
-
-
-
 def create_histogram(dimensions,label):
 
     numberofvalues = len(dimensions)
